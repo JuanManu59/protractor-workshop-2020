@@ -32,7 +32,7 @@ describe('Buy a t-shirt', () => {
     // await $('#center_column a.button.ajax_add_to_cart_button.btn.btn-default').click();
     await productListPage.method0();
 
-    await(browser.sleep(3000));
+    await(browser.sleep(5000));
 
     // await $('[style*="display: block;"] .button-container > a').click();
     await productAddedModalPage.method1();
