@@ -1,13 +1,13 @@
 import { $, ElementFinder } from 'protractor';
 
 export class PaymentStepPage {
-  private tShirtMenu: ElementFinder;
+  private payment: ElementFinder;
 
   constructor () {
-    this.tShirtMenu = $('#form > p > button > span');
+    this.payment = $('#HOOK_PAYMENT > div:nth-child(1) > div > p > a');
   }
 
-  public async method6(): Promise<void> {
-    await this.tShirtMenu.click();
+  public async confirmPayment(): Promise<void> {
+    await this.payment.click();
   }
 }

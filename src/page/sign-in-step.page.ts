@@ -1,13 +1,15 @@
 import { $, ElementFinder } from 'protractor';
 
 export class SignInStepPage {
-  private tShirtMenu: ElementFinder;
+  private credentials: ElementFinder;
 
   constructor () {
-    this.tShirtMenu = $('#SubmitLogin > span');
+    this.credentials = $('#SubmitLogin > span');
   }
 
-  public async method3(): Promise<void> {
-    await this.tShirtMenu.click();
+  public async goToSignIn(): Promise<void> {
+    await $('#email').sendKeys('aperdomobo@gmail.com');
+    await $('#passwd').sendKeys('WorkshopProtractor');
+    await this.credentials.click();
   }
 }

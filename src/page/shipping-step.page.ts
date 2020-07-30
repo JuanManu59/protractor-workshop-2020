@@ -1,13 +1,17 @@
-import { $, ElementFinder } from 'protractor';
+import { $, ElementFinder, browser } from 'protractor';
 
 export class ShippingStepPage {
-  private tShirtMenu: ElementFinder;
+  private acceptTerms: ElementFinder;
+  private checkout: ElementFinder;
 
   constructor () {
-    this.tShirtMenu = $('#cgv');
+    this.acceptTerms = $('#cgv');
+    this.checkout = $('#form > p > button > span');
   }
 
-  public async method5(): Promise<void> {
-    await this.tShirtMenu.click();
+  public async confirmShipping(): Promise<void> {
+    await this.acceptTerms.click();
+    await(browser.sleep(3000));
+    await this.checkout.click();
   }
 }

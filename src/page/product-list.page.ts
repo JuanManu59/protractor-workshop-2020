@@ -1,13 +1,13 @@
 import { $, ElementFinder } from 'protractor';
 
 export class ProductListPage {
-  private tShirtMenu: ElementFinder;
+  private addToCar: ElementFinder;
 
   constructor () {
-    this.tShirtMenu = $('#center_column a.button.ajax_add_to_cart_button.btn.btn-default');
+    this.addToCar = $('#center_column a.button.ajax_add_to_cart_button.btn.btn-default');
   }
 
-  public async method0(): Promise<void> {
-    await this.tShirtMenu.click();
+  public async checkProductList(): Promise<void> {
+    await this.addToCar.click();
   }
 }

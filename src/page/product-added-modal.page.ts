@@ -1,13 +1,13 @@
 import { $, ElementFinder } from 'protractor';
 
 export class ProductAddedModalPage {
-  private tShirtMenu: ElementFinder;
+  private productAdd: ElementFinder;
 
   constructor () {
-    this.tShirtMenu = $('[style*="display: block;"] .button-container > a');
+    this.productAdd = $('[style*="display: block;"] .button-container > a');
   }
 
-  public async method1(): Promise<void> {
-    await this.tShirtMenu.click();
+  public async addProduct(): Promise<void> {
+    await this.productAdd.click();
   }
 }
