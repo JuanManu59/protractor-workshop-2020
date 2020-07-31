@@ -1,12 +1,13 @@
-import { $ } from 'protractor';
+import { $, ElementFinder } from 'protractor';
 
 export class OrderSummaryPage {
+  private confirmationText: ElementFinder;
 
   constructor () {
+    this.confirmationText = $('#center_column > div > p > strong');
   }
 
-  public async goToOrder(): Promise<void> {
-    await expect($('#center_column > div > p > strong').getText())
-    .toBe('Your order on My Store is complete.');
+  public async confirm(): Promise<string> {
+    return this.confirmationText.getText();
   }
 }

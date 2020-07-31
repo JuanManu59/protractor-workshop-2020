@@ -1,15 +1,25 @@
 import { $, ElementFinder } from 'protractor';
 
 export class SignInStepPage {
-  private credentials: ElementFinder;
+  private accept: ElementFinder;
+  private emailCredential: ElementFinder;
+  private passwordCredential: ElementFinder;
 
-  constructor () {
-    this.credentials = $('#SubmitLogin > span');
+  private email: string;
+  private password: string;
+
+  constructor (email: string, password: string) {
+    this.emailCredential = $('#email');
+    this.passwordCredential = $('#passwd');
+    this.accept = $('#SubmitLogin > span');
+
+    this.email = email;
+    this.password = password;
   }
 
   public async goToSignIn(): Promise<void> {
-    await $('#email').sendKeys('aperdomobo@gmail.com');
-    await $('#passwd').sendKeys('WorkshopProtractor');
-    await this.credentials.click();
+    await this.emailCredential.sendKeys(this.email);
+    await this.passwordCredential.sendKeys(this.password);
+    await this.accept.click();
   }
 }

@@ -13,7 +13,9 @@ describe('Buy a t-shirt', () => {
   const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage();
   const productListPage: ProductListPage = new ProductListPage();
   const shippingStepPage: ShippingStepPage = new ShippingStepPage();
-  const signInStepPage: SignInStepPage = new SignInStepPage();
+  const email: string = 'aperdomobo@gmail.com';
+  const password: string = 'WorkshopProtractor';
+  const signInStepPage: SignInStepPage = new SignInStepPage(email, password);
   const summaryStepPage: SummaryStepPage = new SummaryStepPage();
 
   beforeEach(() => {
@@ -70,8 +72,7 @@ describe('Buy a t-shirt', () => {
     await bankPaymentPage.goToBank();
 
     await(browser.sleep(3000));
-
-    await orderSummaryPage.goToOrder();
-
+    // await orderSummaryPage.confirm();
+    await expect(orderSummaryPage.confirm()).toBe('Your order on My Store is complete.');
   });
 });
